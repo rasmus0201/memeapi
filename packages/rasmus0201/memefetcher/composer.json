@@ -1,0 +1,15 @@
+{
+    "name": "rasmus0201/memefetcher",
+    "description": "A package to get random memes.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rasmus Bundsgaard",
+            "email": "rso@ordbogen.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "guzzlehttp/guzzle": "^6.3"
+    }
+}
