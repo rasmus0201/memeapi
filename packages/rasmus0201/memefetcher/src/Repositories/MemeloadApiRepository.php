@@ -4,7 +4,7 @@ namespace Bundsgaard\MemeFetcher\Repositories;
 
 use Bundsgaard\MemeFetcher\Contracts\MemeRepositoryInterface;
 
-class MemeloadApiRepository extends Repository implements MemeRepositoryInterface
+class MemeloadApiRepository extends HttpRepository implements MemeRepositoryInterface
 {
     public function random()
     {
