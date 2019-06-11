@@ -30,6 +30,14 @@ class MemeController extends Controller
     }
 
     /**
+     * Get a random meme for every load
+     */
+    public function random()
+    {
+        return '<img src="' . $this->memeFetcher->random() . '" alt="Random meme" style="width:100vw;height:100vh;object-fit:contain;"/>';
+    }
+
+    /**
      * Get a meme
      */
     public function get($url)

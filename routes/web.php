@@ -16,6 +16,11 @@ $router->get('/', [
     'as' => 'meme'
 ]);
 
+$router->get('/random', [
+    'uses' => 'MemeController@random',
+    'as' => 'random'
+]);
+
 $router->get('/memeapi', [
     'uses' => 'MemeController@memeapiRandom',
     'as' => 'memeapi.random'
