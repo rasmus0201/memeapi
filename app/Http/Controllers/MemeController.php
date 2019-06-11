@@ -51,7 +51,7 @@ class MemeController extends Controller
             die('404 - That\'s an error. The requested url was not found. That\'s all we know.');
         }
 
-        return '<img src="' . $url . '" alt="Random meme" />';
+        return '<img src="' . $url . '" alt="Random meme" style="width:100vw;height:100vh;object-fit:contain;"/>';
     }
 
     /**
