@@ -26,9 +26,14 @@ $router->get('/memeload', [
     'as' => 'memeloadapi.random'
 ]);
 
-$router->get('/giphy', [
-    'uses' => 'MemeController@giphyapiRandom',
-    'as' => 'giphyapi.random'
+$router->get('/gif', [
+    'uses' => 'MemeController@giphygifapiRandom',
+    'as' => 'giphygifapi.random'
+]);
+
+$router->get('/sticker', [
+    'uses' => 'MemeController@giphystickerapiRandom',
+    'as' => 'giphystickerapi.random'
 ]);
 
 $router->get('/get/{url}', [

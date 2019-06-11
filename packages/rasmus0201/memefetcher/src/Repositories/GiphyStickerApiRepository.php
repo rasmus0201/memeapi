@@ -4,7 +4,7 @@ namespace Bundsgaard\MemeFetcher\Repositories;
 
 use Bundsgaard\MemeFetcher\Contracts\MemeRepositoryInterface;
 
-class GiphyApiRepository extends HttpRepository implements MemeRepositoryInterface
+class GiphyStickerApiRepository extends HttpRepository implements MemeRepositoryInterface
 {
     /**
      * Get random gif url
@@ -13,7 +13,7 @@ class GiphyApiRepository extends HttpRepository implements MemeRepositoryInterfa
      */
     public function random()
     {
-        $random = $this->get('v1/gifs/random' . $this->credentials());
+        $random = $this->get('v1/stickers/random' . $this->credentials());
 
         return 'https://i.giphy.com/' . $random->data->id . '.gif';
     }

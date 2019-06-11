@@ -73,8 +73,16 @@ class MemeController extends Controller
     /**
      * Get a random gif from giphy
      */
-    public function giphyapiRandom()
+    public function giphygifapiRandom()
     {
-        return redirect()->route('meme.get', ['url' => urlencode($this->memeFetcher->giphyapi->random())]);
+        return redirect()->route('meme.get', ['url' => urlencode($this->memeFetcher->giphygifapi->random())]);
+    }
+
+    /**
+     * Get a random sticker from giphy
+     */
+    public function giphystickerapiRandom()
+    {
+        return redirect()->route('meme.get', ['url' => urlencode($this->memeFetcher->giphystickerapi->random())]);
     }
 }
