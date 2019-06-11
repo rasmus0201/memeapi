@@ -31,6 +31,11 @@ $router->get('/memeload', [
     'as' => 'memeloadapi.random'
 ]);
 
+$router->get('/9gag', [
+    'uses' => 'MemeController@ninegagapiRandom',
+    'as' => '9gagapi.random'
+]);
+
 $router->get('/gif', [
     'uses' => 'MemeController@giphygifapiRandom',
     'as' => 'giphygifapi.random'

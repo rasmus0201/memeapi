@@ -13,7 +13,7 @@ class GiphyStickerApiRepository extends HttpRepository implements MemeRepository
      */
     public function random()
     {
-        $random = $this->get('v1/stickers/random' . $this->credentials());
+        $random = $this->getJson('v1/stickers/random' . $this->credentials());
 
         return 'https://i.giphy.com/' . $random->data->id . '.gif';
     }

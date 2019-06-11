@@ -37,7 +37,34 @@ abstract class HttpRepository
      */
     protected function get($url)
     {
+        return $this->fetch('GET', $url);
+    }
+
+    /**
+     * GET method for api (returns json data)
+     *
+     * @param string $url
+     *
+     * @return \stdClass
+     */
+    protected function getJson($url)
+    {
         return $this->jsonFetch('GET', $url);
+    }
+
+    /**
+     * Fetch data by some HTTP method
+     *
+     * @param string $method
+     * @param string $url
+     *
+     * @return \stdClass
+     */
+    private function fetch($method, $url)
+    {
+        $response = $this->guzzleClient->request($method, $this->constructUrl($url));
+
+        return $response->getBody()->getContents();
     }
 
     /**
@@ -52,18 +79,6 @@ abstract class HttpRepository
     {
         $response = $this->guzzleClient->request($method, $this->constructUrl($url));
 
-        return $this->jsonResponse($response);
-    }
-
-    /**
-     * Get JSON response from a Guzzle response stream
-     *
-     * @param \Psr\Http\Message\MessageInterface $response
-     *
-     * @return \stdClass
-     */
-    private function jsonResponse($response)
-    {
         return json_decode($response->getBody()->getContents());
     }
 

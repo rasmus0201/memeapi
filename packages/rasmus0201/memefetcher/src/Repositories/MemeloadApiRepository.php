@@ -13,7 +13,7 @@ class MemeloadApiRepository extends HttpRepository implements MemeRepositoryInte
      */
     public function random()
     {
-        return $this->get('random')->image;
+        return $this->getJson('random')->image;
     }
 
     /**

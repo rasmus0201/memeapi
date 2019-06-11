@@ -26,7 +26,13 @@ class MemeController extends Controller
      */
     public function index()
     {
-        return redirect()->route('meme.get', ['url' => urlencode($this->memeFetcher->random())]);
+        $random = $this->memeFetcher->random();
+
+        if (is_array($random)) {
+            return $this->index();
+        }
+
+        return redirect()->route('meme.get', ['url' => urlencode($random)]);
     }
 
     /**
@@ -76,6 +82,26 @@ class MemeController extends Controller
     public function memeloadapiRandom()
     {
         return redirect()->route('meme.get', ['url' => urlencode($this->memeFetcher->memeloadapi->random())]);
+    }
+
+    /**
+     * Get a random meme from 9gag
+     */
+    public function ninegagapiRandom()
+    {
+        ['type' => $type, 'url' => $url] = $this->memeFetcher->ninegagapi->random();
+
+        ?>
+            <?php if ($type === 'animated'): ?>
+                <video preload="auto" loop="loop" autoplay controls>
+                    <source src="<?php echo urldecode($url); ?>" type="video/mp4">
+                </video>
+            <?php else: ?>
+                <picture>
+                    <img src="<?php echo urldecode($url); ?>" style="width:100vw;height:100vh;object-fit:contain;">
+                </picture>
+            <?php endif; ?>
+        <?php
     }
 
     /**

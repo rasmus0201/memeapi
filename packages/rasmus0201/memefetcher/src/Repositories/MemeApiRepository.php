@@ -13,7 +13,7 @@ class MemeApiRepository extends HttpRepository implements MemeRepositoryInterfac
      */
     public function random()
     {
-        return $this->get('gimme')->url;
+        return $this->getJson('gimme')->url;
     }
 
     /**
