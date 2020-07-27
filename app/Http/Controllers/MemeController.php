@@ -54,7 +54,6 @@ class MemeController extends Controller
             $host = parse_url($url)['host'];
 
             if (!in_array($host, [
-                'cdn.memeload.us',
                 'i.redd.it',
                 'i.giphy.com',
                 'i.imgur.com',
@@ -66,22 +65,6 @@ class MemeController extends Controller
         }
 
         return '<img src="' . $url . '" alt="Random meme" style="width:100vw;height:100vh;object-fit:contain;"/>';
-    }
-
-    /**
-     * Get a random meme from memeapi
-     */
-    public function memeapiRandom()
-    {
-        return redirect()->route('meme.get', ['url' => urlencode($this->memeFetcher->memeapi->random())]);
-    }
-
-    /**
-     * Get a random meme from memeloadapi
-     */
-    public function memeloadapiRandom()
-    {
-        return redirect()->route('meme.get', ['url' => urlencode($this->memeFetcher->memeloadapi->random())]);
     }
 
     /**

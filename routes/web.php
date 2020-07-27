@@ -21,16 +21,6 @@ $router->get('/random', [
     'as' => 'random'
 ]);
 
-$router->get('/memeapi', [
-    'uses' => 'MemeController@memeapiRandom',
-    'as' => 'memeapi.random'
-]);
-
-$router->get('/memeload', [
-    'uses' => 'MemeController@memeloadapiRandom',
-    'as' => 'memeloadapi.random'
-]);
-
 $router->get('/9gag', [
     'uses' => 'MemeController@ninegagapiRandom',
     'as' => '9gagapi.random'

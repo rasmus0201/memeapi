@@ -4,10 +4,8 @@ namespace Bundsgaard\MemeFetcher;
 
 use Bundsgaard\MemeFetcher\Support\GuardMagicGet;
 use Bundsgaard\MemeFetcher\Contracts\MemeRepositoryInterface;
-use Bundsgaard\MemeFetcher\Repositories\MemeApiRepository;
 use Bundsgaard\MemeFetcher\Repositories\NinegagApiRepository;
 use Bundsgaard\MemeFetcher\Repositories\GiphyGifApiRepository;
-use Bundsgaard\MemeFetcher\Repositories\MemeloadApiRepository;
 use Bundsgaard\MemeFetcher\Repositories\GiphyStickerApiRepository;
 
 class MemeFetcher
@@ -74,10 +72,8 @@ class MemeFetcher
     protected function availableRepositories()
     {
         return [
-            $this->formatRepositoryClass(MemeApiRepository::class) => MemeApiRepository::class,
-            $this->formatRepositoryClass(NinegagApiRepository::class) => NinegagApiRepository::class,
+            // $this->formatRepositoryClass(NinegagApiRepository::class) => NinegagApiRepository::class,
             $this->formatRepositoryClass(GiphyGifApiRepository::class) => GiphyGifApiRepository::class,
-            $this->formatRepositoryClass(MemeloadApiRepository::class) => MemeloadApiRepository::class,
             $this->formatRepositoryClass(GiphyStickerApiRepository::class) => GiphyStickerApiRepository::class,
         ];
     }
